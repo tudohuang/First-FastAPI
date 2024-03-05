@@ -8,7 +8,7 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 import json
 
 # 加載Tokenizer配置
-with open(r"C:\Users\Tudo\Desktop\web\tokenizer_config.json") as f:
+with open(r"tokenizer_config.json") as f:
     tokenizer_data = f.read()
 tokenizer = tokenizer_from_json(tokenizer_data)
 
@@ -36,7 +36,7 @@ max_seq_length = 171  # 序列的最大長度
 
 model = TextLSTM(vocab_size, embed_dim, hidden_dim, num_layers, num_classes)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model.load_state_dict(torch.load(r"C:\Users\Tudo\Desktop\web\lstm.pt", map_location=device))
+model.load_state_dict(torch.load(r"lstm.pt", map_location=device))
 model.to(device)
 model.eval()
 
